@@ -66,12 +66,18 @@ var quizQuestions = [{
 
 ];
 // Few more global variables
+// quiz state variables
+var currentQuestionIndex = 0;
+var time = questions.length * 10;
+//var timerId;
 var finalQuestionIndex = quizQuestions.length;
 var currentQuestionIndex = 0;
 var timeLeft = 76;
 var timerInterval;
 var score = 0;
 var correct;
+
+
 
 // This function cycles through the object array containing the quiz questions to generate the questions and answers.
 function generateQuizQuestion() {
@@ -158,6 +164,28 @@ function generateHighscores() {
     }
 }
 
+function clockTick() {
+    // deduct time when user select wrong answer
+    time--;
+    timerEl.textContent = time;
+
+    // end quiz if user ran out of time
+    if (time <= 0) {
+        quizEnd();
+    }
+}
+
+function questionClick() {
+    // check if user guessed wrong
+    if (this.value !== questions[currentQuestionIndex].answer) {
+        // penalize time
+        time -= 10;
+    }
+
+    if (time < 0) {
+        time = 0;
+    }
+}
 // This function displays the high scores page while hiding all of the other pages from 
 function showHighscore() {
     startQuizDiv.style.display = "none"

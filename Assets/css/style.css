@@ -1,10 +1,3 @@
-:root {
-    background-color: whitesmoke;
-    color: black;
-    box-sizing: border-box;
-    justify-content: flex-start;
-}
-
 li {
     padding-bottom: 3px;
     color: white;

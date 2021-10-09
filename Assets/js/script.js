@@ -48,7 +48,7 @@ var quizQuestions = [{
     {
         question: "What code would you use to get an ID from HTML file in Javascript?",
         choiceA: "document.querySelector",
-        choiceB: "window.localStorage.getItem",
+        choiceB: "window.getElementById",
         choiceC: "document.getElementById",
         choiceD: "A & C",
         correctAnswer: "d"
@@ -72,7 +72,7 @@ var time = questions.length * 10;
 //var timerId;
 var finalQuestionIndex = quizQuestions.length;
 var currentQuestionIndex = 0;
-var timeLeft = 76;
+var timeLeft = 50;
 var timerInterval;
 var score = 0;
 var correct;
@@ -149,7 +149,7 @@ submitScoreBtn.addEventListener("click", function highscore() {
 
 });
 
-// This function clears the list for the high scores and generates a new high score list from local storage
+// TO clears the list for the high scores and generates a new high score list from local storage
 function generateHighscores() {
     highscoreDisplayName.innerHTML = "";
     highscoreDisplayScore.innerHTML = "";
